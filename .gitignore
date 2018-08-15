@@ -1,0 +1,8 @@
+
+*.xml
+
+.idea/
+node_modules/
+passwords.js
+
+the-avenue.pem
