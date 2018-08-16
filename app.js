@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./api/routes/users');
 const messagesRoutes = require('./api/routes/messages');
 
-mongoose.connect('mongodb+srv://theAvenueApp:5JiOuLiq4wtpnp9O@tdmpffl-db-jikeb.mongodb.net/theAvenue?retryWrites=true', {
+mongoose.connect('mongodb+srv://theAvenueApp:5JiOuLiq4wtpnp9O@the-avenue--db-jikeb.mongodb.net/tdmpffl?retryWrites=true', {
     useNewUrlParser: true
 });
 mongoose.Promise = global.Promise;
