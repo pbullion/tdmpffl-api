@@ -6,8 +6,9 @@ const mongoose = require('mongoose');
 
 const userRoutes = require('./api/routes/users');
 const messagesRoutes = require('./api/routes/messages');
+const adminRoutes = require('./api/routes/admin');
 
-mongoose.connect('mongodb+srv://theAvenueApp:5JiOuLiq4wtpnp9O@the-avenue-db-jikeb.mongodb.net/tdmpffl?retryWrites=true', {
+mongoose.connect('mongodb+srv://theAvenueApp:5JiOuLiq4wtpnp9O@the-avenue-db-jikeb.mongodb.net/theAvenue?retryWrites=true', {
     useNewUrlParser: true
 });
 mongoose.Promise = global.Promise;
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 
 app.use('/users', userRoutes);
 app.use('/messages', messagesRoutes);
+app.use('/admin', adminRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
