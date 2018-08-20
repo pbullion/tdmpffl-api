@@ -2,28 +2,36 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const fetch = require('node-fetch');
-const checkAuth = require('../middleware/check-auth');
+const espnFF = require('espn-ff-api');
 
-const Message = require('../models/message');
-const User = require('../models/user');
+const Standings = require('../models/standings');
+
+const leagueID = '584136';
+const cookies = {
+    espnS2 : 'AEBYHUTTeOIm3d0iuJ9p7%2BPam16PplfNIbCrZsN39o8NPGUUyT8imjnusWnZOnlP1GqluFJ2AKHhvGuJLBYUEzJ5MFmPm5si17OwV7hAVOMrEzqL%2FLHrkaeoXgnb29TJhXbNBwxjcfn10Z8l%2FDz3tqlpiWdr20Qu6aeyktfkXyqOv8YPSp7nXuIeMx0s%2Fcj7uRKwsdPW%2FykdnxdbBRywa6%2BCSUcqAX6W2TxxcFt78DeWj6oP99wVwT4GrWEzfIuI8SoeVE4CeoDwBFeOk9kuhVCfouan4IfwzhCaENL1oNt%2FXg%3D%3D',
+    SWID   : '{19B220F5-0B10-46F8-B420-44A371995BC5}'
+};
 
 router.get('/', (req, res, next) => {
-    Message.find()
-        .select('_id title body date')
-        .exec()
-        .then(docs => {
-            const response = {
-                count: docs.length,
-                messages: docs.map(doc => {
-                    return {
-                        _id: doc._id,
-                        title: doc.title,
-                        body: doc.body,
-                        date: doc.date
-                    }
-                })
-            };
-            res.status(200).json(response);
+    espnFF.getLeagueStandings(cookies, leagueID)
+        .then(standings => {
+            console.log('getting the standings');
+            console.log('standings', standings);
+            res.status(200).json(standings.teams);
+        })
+        .catch(err => {
+            console.log(error);
+            res.status(500).json({
+                error: err
+            })
+        })
+});
+router.get('/scoreboard', (req, res, next) => {
+    espnFF.getLeagueScoreboard(cookies, leagueID)
+        .then(leagueInfo => {
+            console.log('getting the standings');
+            console.log('leagueInfo', leagueInfo);
+            res.status(200).json(leagueInfo.scoreboard.matchups);
         })
         .catch(err => {
             console.log(error);
@@ -34,21 +42,21 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    const message = new Message({
+    const standings = new Standings({
         _id: new mongoose.Types.ObjectId(),
         title: req.body.title,
         body: req.body.body,
         date: req.body.date
     });
-    message
+    standings
         .save()
         .then(result => {
             console.log(result);
-            var messages = [];
+            var standings = [];
             User.find().then(userArray => {
                 console.log(userArray);
                 userArray.forEach(function(element) {
-                    messages.push({
+                    standings.push({
                         "to": element.expoToken,
                         "sound": "default",
                         "body": result.body,
@@ -56,14 +64,14 @@ router.post('/', (req, res, next) => {
                         "badge": 1
                     });
                 });
-                console.log(messages);
+                console.log(standings);
                 fetch('https://exp.host/--/api/v2/push/send', {
                     method: 'post',
                     headers: {
                         "accept": "application/json",
                         "content-type": "application/json"
                     },
-                    body: JSON.stringify(messages)
+                    body: JSON.stringify(standings)
                 })
                     .catch(reason => {
                         console.log(reason)
@@ -71,8 +79,8 @@ router.post('/', (req, res, next) => {
             });
 
             res.status(201).json({
-                message: 'Created message successfully',
-                createdMessage: {
+                standings: 'Created standings successfully',
+                createdStandings: {
                     title: result.title,
                     body: result.body,
                     date: result.date,
@@ -85,9 +93,9 @@ router.post('/', (req, res, next) => {
             res.status(500).json({error: err});
         });});
 
-router.delete('/:messageId', (req, res, next) => {
-    const id = req.params.messageId;
-    Message.remove({ _id: id })
+router.delete('/:standingsId', (req, res, next) => {
+    const id = req.params.standingsId;
+    Standings.remove({ _id: id })
         .exec()
         .then(result => {
             res.status(200).json(result);

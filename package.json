@@ -11,13 +11,17 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
     "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "espn-ff-api": "^1.0.9",
     "express": "^4.16.3",
+    "i": "^0.3.6",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.8",
     "morgan": "^1.9.0",
     "multer": "^1.3.1",
-    "node-fetch": "^2.2.0"
+    "node-fetch": "^2.2.0",
+    "npm": "^6.4.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.3"
