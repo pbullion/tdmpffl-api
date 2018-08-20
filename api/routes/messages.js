@@ -9,7 +9,7 @@ const User = require('../models/user');
 
 router.get('/', (req, res, next) => {
     Message.find()
-        .select('_id title body date')
+        .select('_id title body date icon iconColor')
         .exec()
         .then(docs => {
             const response = {
