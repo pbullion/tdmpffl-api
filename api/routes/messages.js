@@ -19,7 +19,9 @@ router.get('/', (req, res, next) => {
                         _id: doc._id,
                         title: doc.title,
                         body: doc.body,
-                        date: doc.date
+                        date: doc.date,
+                        icon: doc.icon,
+                        iconColor: doc.iconColor
                     }
                 })
             };
@@ -38,7 +40,9 @@ router.post('/', (req, res, next) => {
         _id: new mongoose.Types.ObjectId(),
         title: req.body.title,
         body: req.body.body,
-        date: req.body.date
+        date: req.body.date,
+        icon: req.body.icon,
+        iconColor: req.body.iconColor
     });
     message
         .save()
