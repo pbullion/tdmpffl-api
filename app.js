@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const userRoutes = require('./api/routes/users');
 const messagesRoutes = require('./api/routes/messages');
+const tedBitzRoutes = require('./api/routes/tedBitz');
 const adminRoutes = require('./api/routes/admin');
 const standingsRoutes = require('./api/routes/standings');
 
@@ -33,6 +34,7 @@ app.use('/users', userRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/admin', adminRoutes);
 app.use('/standings', standingsRoutes);
+app.use('/tedBitz', tedBitzRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
