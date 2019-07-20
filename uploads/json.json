@@ -1,0 +1,255 @@
+{
+    "overallRecords": {
+    "records": [
+        {
+            "percent": ".670",
+            "losses": 30,
+            "wins": 61,
+            "name": "Dustin Williams",
+            "position": "1"
+        },
+        {
+            "percent": ".569",
+            "losses": 28,
+            "wins": 37,
+            "name": "Jake Smith",
+            "position": "2"
+        },
+        {
+            "percent": ".551",
+            "losses": 35,
+            "wins": 43,
+            "name": "Brian Broussard",
+            "position": "3"
+        },
+        {
+            "percent": ".538",
+            "losses": 42,
+            "wins": 49,
+            "name": "Jonathan Meier",
+            "position": "4"
+        },
+        {
+            "percent": ".500",
+            "losses": 45.5,
+            "wins": 45.5,
+            "name": "Eddie Capistran",
+            "position": "5"
+        },
+        {
+            "percent": ".500",
+            "losses": 45.5,
+            "wins": 45.5,
+            "name": "Doug Sartin",
+            "position": "6"
+        },
+        {
+            "percent": ".500",
+            "losses": 39,
+            "wins": 39,
+            "name": "Zane Grant",
+            "position": "7"
+        },
+        {
+            "percent": ".484",
+            "losses": 47,
+            "wins": 44,
+            "name": "Patrick Bullion",
+            "position": "8"
+        },
+        {
+            "percent": ".484",
+            "losses": 47,
+            "wins": 44,
+            "name": "Cody Guidry",
+            "position": "9"
+        },
+        {
+            "percent": ".429",
+            "losses": 52,
+            "wins": 39,
+            "name": "Caleb Jones",
+            "position": "10"
+        },
+        {
+            "percent": ".385",
+            "losses": 24,
+            "wins": 15,
+            "name": "Ray Medalla",
+            "position": "11"
+        },
+        {
+            "percent": ".385",
+            "losses": 16,
+            "wins": 10,
+            "name": "Jason Vredenburgh",
+            "position": "12"
+        }
+    ],
+        "lastUpdated": "August 20, 2018"
+},
+    "currentStandings": [
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Patrick Bullion",
+        "position": "1"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Dustin Williams",
+        "position": "2"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Jonathan Meier",
+        "position": "3"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Doug Sartin",
+        "position": "4"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Caleb Jones",
+        "position": "5"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Ray Medalla",
+        "position": "6"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Zane Grant",
+        "position": "7"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Jason Vredenburgh",
+        "position": "8"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Jake Smith",
+        "position": "9"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Eddie Capistran",
+        "position": "10"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Brian Broussard",
+        "position": "11"
+    },
+    {
+        "losses": 0,
+        "wins": 0,
+        "teamName": "Cody Guidry",
+        "position": "12"
+    }
+],
+    "currentWeek": "Week 0",
+    "calendar": {
+    "2018-10-07": [
+        {
+            "name": "Cowboys at Texans",
+            "height": 50
+        }
+    ],
+        "2018-10-06": [
+        {
+            "name": "Steak Party",
+            "height": 50
+        }
+    ],
+        "2018-09-06": [
+        {
+            "name": "First Game",
+            "height": 50
+        }
+    ],
+        "2018-08-27": [
+        {
+            "name": "Surfside Draft",
+            "height": 50
+        }
+    ],
+        "2018-08-26": [
+        {
+            "name": "Surfside Draft",
+            "height": 50
+        }
+    ],
+        "2018-08-25": [
+        {
+            "name": "Surfside Draft",
+            "height": 50
+        }
+    ],
+        "2018-08-24": [
+        {
+            "name": "Surfside Draft",
+            "height": 50
+        }
+    ],
+        "2018-08-23": [
+        {
+            "name": "Surfside Draft",
+            "height": 50
+        }
+    ],
+        "2018-08-22": [
+        {
+            "name": "Fish Derby",
+            "height": 50
+        }
+    ],
+        "2019-08-22": [
+        {
+            "name": "Gypsy Draft",
+            "height": 50
+        }
+    ],
+        "2019-08-23": [
+        {
+            "name": "Gypsy Draft",
+            "height": 50
+        }
+    ],
+        "2019-08-24": [
+        {
+            "name": "Gypsy Draft",
+            "height": 50
+        }
+    ],
+        "2019-08-25": [
+        {
+            "name": "Gypsy Draft",
+            "height": 50
+        }
+    ],
+        "2019-09-05": [
+        {
+            "name": "First NFL Game",
+            "height": 50
+        }
+    ]
+},
+    "homeScreen": {
+    "header": "testing"
+}
+}

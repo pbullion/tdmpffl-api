@@ -10,7 +10,7 @@ const tedBitzRoutes = require('./api/routes/tedBitz');
 const adminRoutes = require('./api/routes/admin');
 const standingsRoutes = require('./api/routes/standings');
 
-mongoose.connect('mongodb+srv://theAvenueApp:5JiOuLiq4wtpnp9O@the-avenue-db-jikeb.mongodb.net/tdmpffl?retryWrites=true', {
+mongoose.connect('mongodb+srv://theAvenueApp:5JiOuLiq4wtpnp9O@the-avenue-db-jikeb.mongodb.net/CodingChallenge?retryWrites=true', {
     useNewUrlParser: true
 });
 mongoose.Promise = global.Promise;

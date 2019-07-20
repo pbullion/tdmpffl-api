@@ -41,6 +41,24 @@ router.get('/scoreboard', (req, res, next) => {
         })
 });
 
+router.get('/scoreboard/singleteam', (req, res, next) => {
+    const teamLocation = req.params.teamLocation;
+    const teamName = req.params.teamName;
+    espnFF.getSingleTeamLineup(cookies, leagueID, 2, 2)
+        .then(leagueInfo => {
+            console.log('getting the standings');
+            console.log('leagueInfo', leagueInfo);
+            // res.status(200).json(leagueInfo[0].projectedPoints);
+            res.status(200).json(leagueInfo);
+        })
+        .catch(err => {
+            console.log(error);
+            res.status(500).json({
+                error: err
+            })
+        })
+});
+
 router.post('/', (req, res, next) => {
     const standings = new Standings({
         _id: new mongoose.Types.ObjectId(),
