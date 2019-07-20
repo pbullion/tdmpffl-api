@@ -18,11 +18,11 @@ router.get('/', (req, res, next) => {
                     }
                 })
             };
-            res.status(200).json(response);
+            res.status(200).jsonBinFile(response);
         })
         .catch(err => {
             console.log(error);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })
@@ -34,7 +34,7 @@ router.post('/', (req, res, next) => {
         .exec()
         .then(user => {
             if (user.length >= 1) {
-                return res.status(409).json({
+                return res.status(409).jsonBinFile({
                     message: "user token exists"
                 });
             } else {
@@ -46,7 +46,7 @@ router.post('/', (req, res, next) => {
                     .save()
                     .then(result => {
                         console.log(result);
-                        res.status(201).json({
+                        res.status(201).jsonBinFile({
                             user: 'Created user successfully',
                             createdUser: {
                                 expoToken: result.expoToken
@@ -55,7 +55,7 @@ router.post('/', (req, res, next) => {
                     })
                     .catch(err => {
                         console.log(err);
-                        res.status(500).json({error: err});
+                        res.status(500).jsonBinFile({error: err});
                     });
             }
         })

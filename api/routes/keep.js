@@ -51,11 +51,11 @@ router.get('/', (req, res, next) => {
                     }
                 })
             };
-            res.status(200).json(response);
+            res.status(200).jsonBinFile(response);
         })
         .catch(err => {
             console.log(error);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })
@@ -73,7 +73,7 @@ router.post('/', upload.single('messageImage'),(req, res, next) => {
         .save()
         .then(result => {
             console.log(result);
-            res.status(201).json({
+            res.status(201).jsonBinFile({
                 message: 'Created message successfully',
                 createdMessage: {
                     title: result.title,
@@ -88,7 +88,7 @@ router.post('/', upload.single('messageImage'),(req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({error: err});
+            res.status(500).jsonBinFile({error: err});
         });});
 
 router.get('/:messageId', (req, res, next) => {
@@ -97,11 +97,11 @@ router.get('/:messageId', (req, res, next) => {
         .exec()
         .then(doc => {
             console.log(doc);
-            res.status(200).json(doc);
+            res.status(200).jsonBinFile(doc);
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({error: err});
+            res.status(500).jsonBinFile({error: err});
         });
 });
 
@@ -116,14 +116,14 @@ router.patch('/:messageId', (req, res, next) => {
         .exec()
         .then(result => {
             console.log(result);
-            res.status(200).json({
+            res.status(200).jsonBinFile({
                 message: 'Message was updated',
 
             });
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })
@@ -134,11 +134,11 @@ router.delete('/:messageId', (req, res, next) => {
     Message.remove({ _id: id })
         .exec()
         .then(result => {
-            res.status(200).json(result);
+            res.status(200).jsonBinFile(result);
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })

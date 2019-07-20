@@ -17,11 +17,11 @@ router.get('/', (req, res, next) => {
         .then(standings => {
             console.log('getting the standings');
             console.log('standings', standings);
-            res.status(200).json(standings.teams);
+            res.status(200).jsonBinFile(standings.teams);
         })
         .catch(err => {
             console.log(error);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })
@@ -31,11 +31,11 @@ router.get('/scoreboard', (req, res, next) => {
         .then(leagueInfo => {
             console.log('getting the standings');
             console.log('leagueInfo', leagueInfo);
-            res.status(200).json(leagueInfo.scoreboard.matchups);
+            res.status(200).jsonBinFile(leagueInfo.scoreboard.matchups);
         })
         .catch(err => {
             console.log(error);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })
@@ -49,11 +49,11 @@ router.get('/scoreboard/singleteam', (req, res, next) => {
             console.log('getting the standings');
             console.log('leagueInfo', leagueInfo);
             // res.status(200).json(leagueInfo[0].projectedPoints);
-            res.status(200).json(leagueInfo);
+            res.status(200).jsonBinFile(leagueInfo);
         })
         .catch(err => {
             console.log(error);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })
@@ -96,7 +96,7 @@ router.post('/', (req, res, next) => {
                     });
             });
 
-            res.status(201).json({
+            res.status(201).jsonBinFile({
                 standings: 'Created standings successfully',
                 createdStandings: {
                     title: result.title,
@@ -108,7 +108,7 @@ router.post('/', (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({error: err});
+            res.status(500).jsonBinFile({error: err});
         });});
 
 router.delete('/:standingsId', (req, res, next) => {
@@ -116,11 +116,11 @@ router.delete('/:standingsId', (req, res, next) => {
     Standings.remove({ _id: id })
         .exec()
         .then(result => {
-            res.status(200).json(result);
+            res.status(200).jsonBinFile(result);
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })

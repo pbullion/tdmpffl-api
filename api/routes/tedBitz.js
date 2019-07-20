@@ -20,11 +20,11 @@ router.get('/', (req, res, next) => {
                     }
                 })
             };
-            res.status(200).json(response);
+            res.status(200).jsonBinFile(response);
         })
         .catch(err => {
             console.log(error);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })
@@ -40,7 +40,7 @@ router.post('/', (req, res, next) => {
         .save()
         .then(result => {
             console.log(result);
-            res.status(201).json({
+            res.status(201).jsonBinFile({
                 tedBitz: 'Created tedBitz successfully',
                 createdTedBitz: {
                     week: result.week,
@@ -51,7 +51,7 @@ router.post('/', (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({error: err});
+            res.status(500).jsonBinFile({error: err});
         });});
 
 router.delete('/:tedBitzId', (req, res, next) => {
@@ -59,11 +59,11 @@ router.delete('/:tedBitzId', (req, res, next) => {
     TedBitz.remove({ _id: id })
         .exec()
         .then(result => {
-            res.status(200).json(result);
+            res.status(200).jsonBinFile(result);
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })

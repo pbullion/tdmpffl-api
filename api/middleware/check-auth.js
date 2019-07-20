@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
         req.adminData = decoded;
         next()
     } catch (error) {
-        return res.status(401).json({
+        return res.status(401).jsonBinFile({
             message: 'Auth failed'
         });
     }

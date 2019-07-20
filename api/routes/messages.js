@@ -25,11 +25,11 @@ router.get('/', (req, res, next) => {
                     }
                 })
             };
-            res.status(200).json(response);
+            res.status(200).jsonBinFile(response);
         })
         .catch(err => {
             console.log(error);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })
@@ -74,7 +74,7 @@ router.post('/', (req, res, next) => {
                     });
             });
 
-            res.status(201).json({
+            res.status(201).jsonBinFile({
                 message: 'Created message successfully',
                 createdMessage: {
                     title: result.title,
@@ -86,7 +86,7 @@ router.post('/', (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({error: err});
+            res.status(500).jsonBinFile({error: err});
         });});
 
 router.delete('/:messageId', (req, res, next) => {
@@ -94,11 +94,11 @@ router.delete('/:messageId', (req, res, next) => {
     Message.remove({ _id: id })
         .exec()
         .then(result => {
-            res.status(200).json(result);
+            res.status(200).jsonBinFile(result);
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         })

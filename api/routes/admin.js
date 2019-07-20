@@ -11,13 +11,13 @@ router.post('/signup', (req, res, next) => {
         .exec()
         .then(admin => {
             if (admin.length >=1) {
-                return res.status(409).json({
+                return res.status(409).jsonBinFile({
                     message: 'Email exists'
                 })
             } else {
                 bcrypt.hash(req.body.password, null, null, (err, hash) => {
                     if (err) {
-                        return res.status(500).json({
+                        return res.status(500).jsonBinFile({
                             error: err
                         })
                     } else {
@@ -30,13 +30,13 @@ router.post('/signup', (req, res, next) => {
                             .save()
                             .then(result => {
                                 console.log(result);
-                                res.status(201).json({
+                                res.status(201).jsonBinFile({
                                     message: 'User Created'
                                 });
                             })
                             .catch(err => {
                                 console.log(err);
-                                res.status(500).json({
+                                res.status(500).jsonBinFile({
                                     error: err
                                 })
                             });
@@ -50,13 +50,13 @@ router.post('/login', (req, res, next) => {
     Admin.find({ email: req.body.email })
         .then(admin => {
             if (admin.length < 1) {
-                return res.status(401).json({
+                return res.status(401).jsonBinFile({
                     message: 'Auth Failed'
                 })
             }
             bcrypt.compare(req.body.password, admin[0].password, (err, result) => {
                 if (err) {
-                    return res.status(401).json({
+                    return res.status(401).jsonBinFile({
                         message: 'Auth Failed'
                     })
                 }
@@ -71,19 +71,19 @@ router.post('/login', (req, res, next) => {
                             expiresIn: "12hr"
                         }
                     );
-                    return res.status(200).json({
+                    return res.status(200).jsonBinFile({
                         message: 'Auth successful',
                         token: token
                     })
                 }
-                res.status(401).json({
+                res.status(401).jsonBinFile({
                     message: 'Auth Failed'
                 })
             })
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         });
@@ -93,13 +93,13 @@ router.delete('/:userId', (req, res, next) => {
     Admin.remove({ _id: req.params.userId })
         .exec()
         .then(result => {
-            res.status(200).json({
+            res.status(200).jsonBinFile({
                 message: 'User deleted'
             });
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
+            res.status(500).jsonBinFile({
                 error: err
             })
         });
