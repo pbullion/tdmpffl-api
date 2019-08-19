@@ -9,10 +9,12 @@ const messagesRoutes = require('./api/routes/messages');
 const tedBitzRoutes = require('./api/routes/tedBitz');
 const adminRoutes = require('./api/routes/admin');
 const standingsRoutes = require('./api/routes/standings');
+const historyRoutes = require('./api/routes/history');
 
 mongoose.connect('mongodb+srv://theAvenueApp:5JiOuLiq4wtpnp9O@the-avenue-db-jikeb.mongodb.net/CodingChallenge?retryWrites=true', {
     useNewUrlParser: true
 });
+
 mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
@@ -28,9 +30,10 @@ app.use((req, res, next) => {
         return res.status(200).jsonBinFile({});
     }
     next();
-});
+});p
 
 app.use('/users', userRoutes);
+app.use('/history', historyRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/admin', adminRoutes);
 app.use('/standings', standingsRoutes);
